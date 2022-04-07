@@ -22,39 +22,30 @@ def part1(rows):
 
 
 def part2(rows, slopes):
-    print(len(rows))
-    # print(len(rows[0]))
-
-    # build path
-    # some high int cause im to stupid to figure out the math behind
-    # you might need to increase the number if you increase the slope_right value further
-    # or you just smarter than me and figure out the math :)
-    mirror_amount = 500
-    path = []
-    for row in rows:
-        path_multi = ''
-        for i in range(mirror_amount + 1):
-            path_multi += row
-        path.append(path_multi)
-
-    results = []
+    max_length = len(rows[0])
+    depth = len(rows)
+    trees = []
     for slope in slopes:
-        trees = 0
-        start = 0
-        slope_right = slope[0]
-        slope_down = slope[1]
-        for i in range(start, len(path) - slope_down):
-            for j in range(start, start + slope_right + 1, slope_down):
-                start = j
-            if path[i + slope_down][start] == '#':
-                trees += 1
-        results.append(int(trees))
+        x, y = 0, 0
+        x_inc, y_inc = slope[0], slope[1]
+        t = 0
+        while y < depth:
+            if rows[y][x] == '#':
+                t += 1
+            x += x_inc
+            y += y_inc
+            if x >= max_length:
+                x %= max_length
+        trees.append(t)
 
-    answer = 1
-    for trees in results:
-        answer *= trees
+    count = 0
+    for tree in trees:
+        if count == 0:
+            count += tree
+        else:
+            count *= tree
 
-    return answer
+    return count
 
 
 def main():
