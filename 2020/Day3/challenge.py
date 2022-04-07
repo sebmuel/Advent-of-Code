@@ -1,13 +1,14 @@
 def part1(rows):
-    tree_count = 0
-    start = 0
-    for j in range(len(rows) - 1):
-        for i in range(start, start + 5):
-            start += 1
-            if rows[j+1][i] == '#' and i == 4:
-                tree_count += 1
-    print(tree_count)
+    # find pattern
+    stack1 = rows
+    stack2 = []
 
+    while len(rows):
+        stack2.append(rows[0])
+        stack1.pop(0)
+        if stack2 == stack1:
+            print('found pattern')
+    print(f"Stack1: {stack1}, Stack2: {stack2}")
 
 def main():
     with open('input.txt', 'r') as txt:
