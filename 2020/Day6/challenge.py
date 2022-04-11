@@ -1,11 +1,17 @@
 def part1(puzzle_input):
-    i = 0
-    for grp in puzzle_input:
-        for qst in grp:
-            if qst != ' ':
-                i += 1
-    print(i)
-
+    forms = [x.split(" ") for x in puzzle_input]
+    counts = []
+    for grp in forms:
+        if len(grp) == 1:
+            counts.append(len(grp[0]))
+        else:
+            dupe = ''
+            for qst in grp:
+                for answer in qst:
+                    if answer not in dupe:
+                        dupe += answer
+            counts.append(len(dupe))
+    return sum(counts)
 
 
 def main():
@@ -25,8 +31,7 @@ def main():
             data_formatted.append(' '.join(stack.copy()))
         puzzle_input.pop(0)
 
-    part1(data_formatted)
-
+    print(f"Part1: {part1(data_formatted)}")
 
 
 if __name__ == '__main__':
