@@ -1,7 +1,7 @@
 def part1(puzzle_input):
-    forms = [x.split(" ") for x in puzzle_input]
+
     counts = []
-    for grp in forms:
+    for grp in puzzle_input:
         if len(grp) == 1:
             counts.append(len(grp[0]))
         else:
@@ -14,10 +14,36 @@ def part1(puzzle_input):
     return sum(counts)
 
 
+def part2(puzzle_input):
+
+    counts = []
+    for grp in puzzle_input:
+        person_answers = len(grp)
+
+        if person_answers == 1:
+            counts.append(len(grp[0]))
+        else:
+            stack = ''
+            for person in grp:
+                stack += person
+            # need check here but what ???
+            p = ''
+            c = 0
+            for s in stack:
+                if s not in p:
+                    c += 1
+                    p += s
+
+            if c == len(p):
+            counts.append(c)
+            c = 0
+    print(sum(counts))
+
+
+
 def main():
     with open("input.txt", "r") as txt:
         puzzle_input = txt.read().splitlines()
-
     stack = []
     data_formatted = [] = []
 
@@ -31,7 +57,9 @@ def main():
             data_formatted.append(' '.join(stack.copy()))
         puzzle_input.pop(0)
 
-    print(f"Part1: {part1(data_formatted)}")
+    forms = [x.split(" ") for x in data_formatted]
+    #print(f"Part1: {part1(forms)}")
+    part2(forms)
 
 
 if __name__ == '__main__':
