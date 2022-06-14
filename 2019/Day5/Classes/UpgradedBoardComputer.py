@@ -24,7 +24,7 @@ class UpgradedBoardComputer:
             self.multi(parameter_modes)
             self.move_pointer(4)
         elif opcode == "03" or opcode == "3":
-            self.dunno(parameter_modes)
+            self.dunno()
             self.move_pointer(2)
         elif opcode == "04" or opcode == "4":
             self.dunno_two()

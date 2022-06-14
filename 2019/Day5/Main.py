@@ -1,12 +1,6 @@
-from Day5.Classes.UpgradedBoardComputer import UpgradedBoardComputer
+from Classes.UpgradedBoardComputer import UpgradedBoardComputer
 
 """
-optcode, 
-1002,4,3,4,33
-
-ABCDE
- 1002
-
 DE - two-digit opcode,      02 == opcode 2
  C - mode of 1st parameter,  0 == position mode
  B - mode of 2nd parameter,  1 == immediate mode
@@ -32,4 +26,8 @@ if __name__ == '__main__':
 
     t = UpgradedBoardComputer(int_codes)
     t.read_code()
-    print(t.output)
+
+    """
+    PART1
+    """
+    print(f"Answer for Part1 is : {t.output[-1]}")
