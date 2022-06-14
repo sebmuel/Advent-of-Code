@@ -1,12 +1,6 @@
-from Day5.Classes.UpgradedBoardComputer import UpgradedBoardComputer
+from Classes.UpgradedBoardComputer import UpgradedBoardComputer
 
 """
-optcode, 
-1002,4,3,4,33
-
-ABCDE
- 1002
-
 DE - two-digit opcode,      02 == opcode 2
  C - mode of 1st parameter,  0 == position mode
  B - mode of 2nd parameter,  1 == immediate mode
@@ -22,7 +16,18 @@ according to the third parameter,
 """
 
 if __name__ == '__main__':
-    string = "1002,4,3,4,33".split(",")
 
-    t = UpgradedBoardComputer(string)
+    """
+    INPUT HANDLING
+    """
+    with open("input.txt", "r") as puzzle_input:
+        int_codes = puzzle_input.read().split(",")
+        int_codes = [x for x in int_codes]
+
+    t = UpgradedBoardComputer(int_codes)
     t.read_code()
+
+    """
+    PART1
+    """
+    print(f"Answer for Part1 is : {t.output[-1]}")

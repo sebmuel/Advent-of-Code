@@ -35,7 +35,7 @@ def part2(puzzle_input):
                     p += s
 
             if c == len(p):
-            counts.append(c)
+                counts.append(c)
             c = 0
     print(sum(counts))
 
