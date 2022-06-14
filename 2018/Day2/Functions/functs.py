@@ -8,6 +8,22 @@ def create_id_dictonary(_id: str) -> dict[int, str]:
     # switch keys and values with each other
     return {value: key for key, value in packet_ids.items()}
 
+def compare_ids(_id_one, _id_two):
+    match = 0
+    stack = _id_two
+    for char in _id_one:
+        if char in stack:
+            match += 1
+            stack = stack.replace(char, "", 1)
+
+    return match
+
+def remove_diff(_id_one: str, _id_two: str):
+    final_id = ""
+    for char in _id_one:
+        if char not in _id_two:
+            final_id = _id_one.replace(char, "")
+            return final_id
 
 def part1(ids: [str]):
     pairs = 0
@@ -19,3 +35,10 @@ def part1(ids: [str]):
         if char_map.get(3) is not None:
             triples += 1
     return pairs * triples
+
+def part2(ids: [str]):
+    for _id_one in ids:
+        for _id_two in ids[1:]:
+            if compare_ids(_id_one, _id_two) == len(_id_one):
+                print(_id_one, _id_two)
+                return remove_diff(_id_one, _id_two)

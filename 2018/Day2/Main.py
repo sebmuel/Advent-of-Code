@@ -18,4 +18,12 @@ if __name__ == '__main__':
     with open("input.txt", "r") as ids:
         ids = [x.strip() for x in ids.readlines()]
 
-    print(part1(ids))
+    """
+    PART1
+    """
+    print(f"Part1: {part1(ids)}")
+
+    """
+    PART2
+    """
+    print(part2(ids))
