@@ -1,6 +1,7 @@
 import operator
 from itertools import cycle
 
+
 def part1(frequencies: [str]):
     frequency = 0
     for freq in frequencies:
