@@ -43,5 +43,4 @@ def part2(ids: [str]):
     for _id_one in ids:
         for _id_two in ids[1:]:
             if compare_ids(_id_one, _id_two) == len(_id_one) - 1 and _id_two != _id_one:
-                print(_id_one, _id_two)
                 return remove_diff(_id_one, _id_two)

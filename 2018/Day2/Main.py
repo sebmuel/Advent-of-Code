@@ -21,12 +21,10 @@ if __name__ == '__main__':
     """
     PART1
     """
-    # print(f"Part1: {part1(ids)}")
+    print(f"Part1: {part1(ids)}")
 
     """
     PART2
     """
-    print(part2(ids))
+    print(f"Part2: {part2(ids)}")
 
-    print(len("lncqdsvwjoteogambzuchirfpx"))
-    print(compare_ids("lncqdsvwjoteogambzuchirfpx", "lncqdsvwjoteogambzuchirfpk"))
